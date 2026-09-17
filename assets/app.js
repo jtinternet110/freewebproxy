@@ -4,15 +4,7 @@
    1) PROXY BACKEND CONFIG  —  yahan apne server ka address dalein
    mode: "ultraviolet" | "rammerhead" | "phpproxy" | "custom"
    ============================================================ */
-var PROXY = {
-  mode: "custom",
-  nodes: {
-    us: "https://freewebproxy-backend.jtinternet110.workers.dev",
-    uk: "https://freewebproxy-backend.jtinternet110.workers.dev",
-    de: "https://freewebproxy-backend.jtinternet110.workers.dev",
-    nl: "https://freewebproxy-backend.jtinternet110.workers.dev",
-    sg: "https://freewebproxy-backend.jtinternet110.workers.dev"
-  },
+var PROXY = { mode: "custom", nodes: { us: "https://freewebproxy-backend.jtinternet110.workers.dev", uk: "https://freewebproxy-backend.jtinternet110.workers.dev", de: "https://freewebproxy-backend.jtinternet110.workers.dev", nl: "https://freewebproxy-backend.jtinternet110.workers.dev", sg: "https://freewebproxy-backend.jtinternet110.workers.dev" },
   uvPrefix: "/service/",
   uvKey: 2,
   phpPath: "/index.php?q=",
