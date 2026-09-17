@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>How Our Free Web Proxy Works - Step by Step | FreeWebProxy</title>
+<meta name="description" content="A clear walkthrough of how FreeWebProxy loads pages for you: the request path, what your network can see, what the website can see, and how to choose an exit location.">
+<meta name="keywords" content="how web proxy works, proxy server explained, proxy vs vpn, hide ip address, bypass network filter">
+<meta name="author" content="1TenHost">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<link rel="canonical" href="https://freewebproxy.aimpak.com/how-it-works.html">
+<meta name="theme-color" content="#070912">
+<meta name="color-scheme" content="dark">
+<meta name="geo.region" content="PK-SD">
+<meta name="geo.placename" content="Karachi, Sindh, Pakistan">
+<meta name="geo.position" content="24.8607;67.0011">
+<meta name="ICBM" content="24.8607, 67.0011">
+<meta name="language" content="English">
+<meta name="coverage" content="Worldwide">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FreeWebProxy">
+<meta property="og:title" content="How Our Free Web Proxy Works - Step by Step | FreeWebProxy">
+<meta property="og:description" content="A clear walkthrough of how FreeWebProxy loads pages for you: the request path, what your network can see, what the website can see, and how to choose an exit location.">
+<meta property="og:url" content="https://freewebproxy.aimpak.com/how-it-works.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://freewebproxy.aimpak.com/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How Our Free Web Proxy Works - Step by Step | FreeWebProxy">
+<meta name="twitter:description" content="A clear walkthrough of how FreeWebProxy loads pages for you: the request path, what your network can see, what the website can see, and how to choose an exit location.">
+<meta name="twitter:image" content="https://freewebproxy.aimpak.com/assets/og-cover.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+
+</head>
+<body>
+<div class="field" aria-hidden="true"><span class="orb a"></span><span class="orb b"></span></div>
+<header>
+  <div class="bar">
+    <a class="brand" href="index.html" aria-label="FreeWebProxy home"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00D4FF"/><stop offset="1" stop-color="#A855F7"/></linearGradient></defs><circle cx="16" cy="16" r="13" stroke="url(#lg1)" stroke-width="2.4"/><ellipse cx="16" cy="16" rx="6" ry="13" stroke="url(#lg1)" stroke-width="1.9"/><path d="M3 16h26" stroke="url(#lg1)" stroke-width="1.9"/></svg>Free<b>WebProxy</b></a>
+    <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav id="nav"><a href="index.html">Proxy</a><a href="how-it-works.html" aria-current="page">How it works</a><a href="servers.html">Servers</a><a href="faq.html">FAQ</a><a href="about.html">About</a><a class="pill" href="index.html#top">Open a site</a></nav>
+  </div>
+</header>
+<main id="top">
+
+  <section class="shell page-head">
+    <p class="crumb"><a href="index.html">Home</a> &rsaquo; <span>How it works</span></p>
+    <h1>How a web proxy moves the page instead of you</h1>
+    <p>No tunnels to configure, no client to install. Here is exactly what happens between pressing the button and the page appearing.</p>
+  </section>
+  <section class="shell" style="padding-top:0"><div class="steps"><div class="step"><em>Step 1</em><h3>Paste the address</h3><p>Type or paste the site you want to reach. If you leave off https:// we add it for you.</p></div><div class="step"><em>Step 2</em><h3>Pick where to appear from</h3><p>Choose the country the site should think you are browsing from. The closest location is usually the fastest.</p></div><div class="step"><em>Step 3</em><h3>Press open site</h3><p>The page loads through our server in a fresh tab. Keep clicking links inside it — they stay proxied.</p></div></div></section>
+  <section class="shell prose" style="padding-top:clamp(40px,6vw,72px)">
+    <h2>The request path, step by step</h2>
+    <p>When you press <strong>Open site</strong>, your browser sends the address you typed to our front-end over an encrypted HTTPS connection. Nothing about that request leaves your device in plain text.</p>
+    <p>Our edge node in the country you selected then makes a fresh request to the destination website. That website replies to <strong>us</strong>, not to you. We rewrite the links, images and stylesheets inside the response so they keep pointing back through the proxy, then hand the finished page to your browser.</p>
+    <p>The practical result: the website's server logs record our exit node's IP address, and your own network's filter only ever saw a connection to freewebproxy.aimpak.com.</p>
+    <h2>What your network administrator can see</h2>
+    <ul>
+      <li>That a device connected to freewebproxy.aimpak.com over port 443.</li>
+      <li>How much data moved, and when.</li>
+      <li><strong>Not</strong> which pages you opened, what you typed, or what you read — that is inside the TLS session.</li>
+    </ul>
+    <h2>What the destination website can see</h2>
+    <ul>
+      <li>Our exit node's IP address and its country.</li>
+      <li>Your browser's user-agent string and screen size, unless you change them.</li>
+      <li><strong>Not</strong> your real IP address, and not your ISP.</li>
+    </ul>
+    <div class="note"><p>A web proxy secures the tab it runs in. Apps outside the browser, DNS lookups made by your operating system, and anything you personally log into are not covered. For whole-device protection, use a VPN.</p></div>
+    <h2>Choosing the right exit location</h2>
+    <p>For raw speed, pick the node geographically nearest to you — from South Asia that is usually Singapore or Frankfurt. For region-locked content, pick the country the content belongs to. Switching location costs nothing; try another if a site refuses the first one.</p>
+  </section>
+  <section class="shell"><div class="cta-band">
+  <h2>Open a blocked site right now</h2>
+  <p>Free, instant, no account. Pick a country and paste a link — that is the whole process.</p>
+  <a class="btn" href="index.html#top">Go to the proxy</a>
+</div></section>
+
+</main>
+<footer>
+  <div class="shell">
+    <div class="f-top">
+      <div>
+        <a class="brand" href="index.html" aria-label="FreeWebProxy home"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><defs><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00D4FF"/><stop offset="1" stop-color="#A855F7"/></linearGradient></defs><circle cx="16" cy="16" r="13" stroke="url(#lg2)" stroke-width="2.4"/><ellipse cx="16" cy="16" rx="6" ry="13" stroke="url(#lg2)" stroke-width="1.9"/><path d="M3 16h26" stroke="url(#lg2)" stroke-width="1.9"/></svg>Free<b>WebProxy</b></a>
+        <p>A free, no-signup web proxy for opening blocked sites and keeping your address to yourself.</p>
+      </div>
+      <div class="f-nav">
+        <div class="f-col">
+          <strong>Product</strong>
+          <a href="index.html">Web proxy</a>
+          <a href="how-it-works.html">How it works</a>
+          <a href="servers.html">Server locations</a>
+          <a href="faq.html">FAQ</a>
+        </div>
+        <div class="f-col">
+          <strong>Guides</strong>
+          <a href="vpn-vs-proxy.html">VPN vs web proxy</a>
+          <a href="unblock-websites.html">Open blocked sites</a>
+          <a href="proxy-not-working.html">Proxy not working</a>
+        </div>
+        <div class="f-col">
+          <strong>Legal</strong>
+          <a href="privacy-policy.html">Privacy policy</a>
+          <a href="terms-of-service.html">Terms of service</a>
+          <a href="disclaimer.html">Disclaimer</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="f-col">
+          <strong>Network</strong>
+          <a href="https://1tenhost.com" target="_blank" rel="noopener">1TenHost</a>
+          <a href="https://aimpak.com" target="_blank" rel="noopener">AimPaK</a>
+          <a href="https://agentsify.co.uk" target="_blank" rel="noopener">Agentsify</a>
+          <a href="about.html">About us</a>
+        </div>
+      </div>
+    </div>
+    <div class="f-base">
+      <span>&copy; <span id="yr">2026</span> FreeWebProxy &middot; freewebproxy.aimpak.com</span>
+      <span class="credit">Design and Develop by <a href="https://1tenhost.com" target="_blank" rel="noopener">1TenHost</a></span>
+    </div>
+  </div>
+</footer>
+<script src="assets/app.js" defer></script>
+</body>
+</html>
