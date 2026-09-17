@@ -5,13 +5,13 @@
    mode: "ultraviolet" | "rammerhead" | "phpproxy" | "custom"
    ============================================================ */
 var PROXY = {
-  mode: "phpproxy",
+  mode: "custom",
   nodes: {
-    us: "",   // e.g. "https://us.freewebproxy.aimpak.com"
-    uk: "",
-    de: "",   // e.g. "https://freewebproxy.aimpak.com/proxy"
-    nl: "",
-    sg: ""
+    us: "https://freewebproxy-backend.jtinternet110.workers.dev",
+    uk: "https://freewebproxy-backend.jtinternet110.workers.dev",
+    de: "https://freewebproxy-backend.jtinternet110.workers.dev",
+    nl: "https://freewebproxy-backend.jtinternet110.workers.dev",
+    sg: "https://freewebproxy-backend.jtinternet110.workers.dev"
   },
   uvPrefix: "/service/",
   uvKey: 2,
